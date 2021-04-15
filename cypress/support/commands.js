@@ -43,3 +43,8 @@ Cypress.Commands.add('reachSignInPage', () => {
     cy.get('.mat-button-wrapper').contains('Login').click()
 })
 
+Cypress.Commands.add('validateErrorSignUpPage', (errorMessage) => {
+    cy.get('.form-errors-response').should("contain", errorMessage)
+})
+
+

@@ -23,20 +23,20 @@ describe('registration', () => {
 
     it('Try to create exist user', () => {
         cy.registration(login, password)
-        cy.get('.form-errors-response').should("contain", "User is already exist")
+        cy.validateErrorSignUpPage("User is already exist") 
     })
 
     it('Try to create user with Login length more than Max', () => {
         cy.registration(invalidLogin, password)
-        cy.get('.form-errors-response').should("contain", "Login and password must be shorter then 20 symbols")
+        cy.validateErrorSignUpPage("Login and password must be shorter then 20 symbols")
     })
     it('Try to create user with Password length more than Max', () => {
         cy.registration(login+2, invalidPassword)
-        cy.get('.form-errors-response').should("contain", "Login and password must be shorter then 20 symbols")
+        cy.validateErrorSignUpPage("Login and password must be shorter then 20 symbols")
     })
 
     it('Try to log in with empty Login and password fields', () => {
         cy.registration(" ", " ")
-        cy.get('.form-errors-response').should("contain", "Login and password are required")
+        cy.validateErrorSignUpPage("Login and password are required")
     })
   })
