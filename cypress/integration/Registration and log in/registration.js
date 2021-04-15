@@ -31,7 +31,7 @@ describe('registration', () => {
         cy.get('.form-errors-response').should("contain", "Login and password must be shorter then 20 symbols")
     })
     it('Try to create user with Password length more than Max', () => {
-        cy.registration(login+1, invalidPassword)
+        cy.registration(login+2, invalidPassword)
         cy.get('.form-errors-response').should("contain", "Login and password must be shorter then 20 symbols")
     })
 
